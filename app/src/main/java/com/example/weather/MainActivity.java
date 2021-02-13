@@ -17,8 +17,10 @@ import okhttp3.Headers;
 public class MainActivity extends AppCompatActivity {
 
     Weather weather;
+    // https://openweathermap.org/
+    final String API_KEY ="4c0b04940376050ab9ff85700fad3570";
 
-    String url = "https://api.openweathermap.org/data/2.5/weather?zip=07090&units=imperial&appid=4c0b04940376050ab9ff85700fad3570";
+    String url = "https://api.openweathermap.org/data/2.5/weather?zip=07090&units=imperial&appid=" + API_KEY;
     public static final String TAG = "MainActivity";
 
     TextView tvName;

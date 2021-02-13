@@ -11,6 +11,15 @@ public class Weather
     String description;
     double wind;
 
+    public Weather(JSONObject jsonObject) throws JSONException {
+        name = jsonObject.getString("name");
+        JSONObject main = jsonObject.getJSONObject("main");
+        temp = main.getDouble("temp");
+        feels_like = main.getDouble(("feels_like"));
+        description = jsonObject.getJSONArray("weather").getJSONObject(0).getString("description");
+        wind = jsonObject.getJSONObject("wind").getDouble("speed");
+    }
+
     public String getName() {
         return name;
     }
@@ -29,15 +38,6 @@ public class Weather
 
     public double getWind() {
         return wind;
-    }
-
-    public Weather(JSONObject jsonObject) throws JSONException {
-        name = jsonObject.getString("name");
-        JSONObject main = jsonObject.getJSONObject("main");
-        temp = main.getDouble("temp");
-        feels_like = main.getDouble(("feels_like"));
-        description = jsonObject.getJSONArray("weather").getJSONObject(0).getString("description");
-        wind = jsonObject.getJSONObject("wind").getDouble("speed");
     }
 
     @Override
